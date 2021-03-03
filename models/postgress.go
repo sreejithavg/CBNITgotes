@@ -20,14 +20,6 @@ type Postgres struct {
 	db *sql.DB
 }
 
-const (
-	host     = "localhost"
-	port     = 5432
-	user     = "postgres"
-	password = "sree@11081995"
-	dbname   = "postgres"
-)
-
 //Connection function establish the connection to the postgressDB
 func connection() *Postgres {
 	log.Println("establishing connection")
@@ -37,7 +29,7 @@ func connection() *Postgres {
 	if err != nil {
 		log.Fatalln("Connection failed :: ", err)
 	}
-	_, err = db.Exec("CREATE TABLE $1", "users")
+	_, err = db.Exec("CREATE TABLE $1", "users_info")
 	if err != nil {
 		log.Println("error at creationg user table", err)
 	}
